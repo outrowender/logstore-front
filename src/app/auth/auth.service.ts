@@ -17,7 +17,11 @@ export class AuthService {
 
   stateWatch() {
     this.authState.subscribe(x => {
-      if (x == "invalid") this._router.navigate(["login"]);
+      if (x == "invalid") {
+        this._router.navigate(["login"]);
+      } else {
+        this._router.navigate(["home"]);
+      }
     });
   }
 
@@ -29,7 +33,12 @@ export class AuthService {
 
   getToken = () => localStorage.getItem("user");
 
-  setToken = (token: string) => localStorage.getItem("user");
+  clearToken = () => localStorage.removeItem("user");
+
+  setToken(token: string) {
+    localStorage.setItem("user", token);
+    this.tokenIsValid();
+  }
 
   /// retorna true se o token for válido
   tokenIsValid() {
@@ -68,5 +77,10 @@ export class AuthService {
         this.setToken(data.token);
       })
       .catch(e => console.warn(e));
+  }
+
+  logout() {
+    this.clearToken();
+    this.setAuthState("invalid");
   }
 }
