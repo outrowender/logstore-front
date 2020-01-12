@@ -38,22 +38,7 @@ jobs:
           # AWS Region
           region: sa-east-1
           # Beanstalk application name
-          application_name: LOGSTORE_FRONT         
-          # Version label for new Beanstalk version
-          version_label: 1.0
+          application_name: logstore         
           # Zip file with the version to deploy. If skipped the action will deploy existing version.
           deployment_package: release.zip
 
-#      - name: Build and Deploy
-#        uses: JamesIves/github-pages-deploy-action@releases/v3
-#        with:
-#          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-#          BRANCH: gh-pages
-#          FOLDER: dist
-
-    # - name: Discord
-    #   uses: Ilshidur/action-discord@0.0.2
-    #   env:
-    #       DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-    #   with:
-    #       args: 'The project test-bossabox-frontend-reactjs-vuttr has been deployed.'
