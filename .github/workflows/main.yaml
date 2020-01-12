@@ -32,7 +32,7 @@ jobs:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_key: ${{ secrets.AWS_SECRET_KEY }}
           region: sa-east-1
-          application_name: logstore
-          environment_name: Logstore-node-env
+          application_name: logstore-sa
+          environment_name: LogstoreSa-env
           deployment_package: release.zip
           version_label: ${{ github.sha }}
