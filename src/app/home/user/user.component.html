@@ -1,3 +1,14 @@
-<p>user works!</p>
-{{ user | json }}
-<button mat-button (click)="logout()">logout</button>
+<div class="container" fxLayoutAlign="center center">
+  <mat-card>
+    <mat-card-content>
+      <h2>Seja bem vindo!</h2>
+      <img src="https://api.adorable.io/avatars/150/{{ user?.email }}.png" />
+      <h1>{{ user?.name }}</h1>
+      <h3>{{ user?.email }}</h3>
+    </mat-card-content>
+    <mat-card-actions>
+      <div fxFlex></div>
+      <button mat-stroked-button (click)="logout()">SAIR</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

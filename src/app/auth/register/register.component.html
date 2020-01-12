@@ -1,39 +1,51 @@
-<div style="height: 100vh;" fxLayoutAlign="center center">
-  <div style="width: 200px;" fxFlex>
-    <img
-      width="40"
-      alt="Angular Logo"
-      src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="
-    />
+<div class="container" fxLayoutAlign="center center">
+  <div class="register" fxLayout="column">
+    <div fxLayoutAlign="center">
+      <img
+        width="120"
+        alt="Angular Logo"
+        src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="
+      />
+    </div>
     <form [formGroup]="formRegister" (ngSubmit)="submit()" fxLayout="column">
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="outline">
         <mat-label>Name</mat-label>
         <input [formControlName]="'name'" matInput />
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-        <mat-hint>Hint</mat-hint>
+
+        <mat-hint *ngIf="isControlHasError('name', 'required')">This field is required</mat-hint>
       </mat-form-field>
-      <mat-form-field appearance="fill">
+
+      <mat-form-field appearance="outline">
         <mat-label>Email</mat-label>
         <input [formControlName]="'email'" matInput />
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-        <mat-hint>Hint</mat-hint>
+
+        <mat-hint *ngIf="isControlHasError('email', 'required')">This field is required</mat-hint>
+        <mat-hint *ngIf="isControlHasError('email', 'email')">This field shoud be a valid email</mat-hint>
       </mat-form-field>
-      <mat-form-field appearance="fill">
+
+      <mat-form-field appearance="outline">
         <mat-label>Password</mat-label>
         <input [formControlName]="'password'" matInput type="password" />
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-        <mat-hint>Hint</mat-hint>
+
+        <mat-hint *ngIf="isControlHasError('password', 'required')">This field is required</mat-hint>
+        <mat-hint *ngIf="isControlHasError('password', 'password')">The password shoud be stronger</mat-hint>
       </mat-form-field>
-      <mat-form-field appearance="fill">
+
+      <mat-form-field appearance="outline">
         <mat-label>Confirm password</mat-label>
         <input [formControlName]="'repassword'" matInput type="password" />
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-        <mat-hint>Hint</mat-hint>
+
+        <mat-hint *ngIf="isControlHasError('repassword', 'compare')">The password not match</mat-hint>
       </mat-form-field>
-      <a [routerLink]="['../', 'login']" mat-button color="accent"
-        >I have an account</a
-      >
-      <button type="submit" mat-stroked-button color="primary">Register</button>
+
+      <div fxLayout="column" fxLayoutGap="8px">
+        <div fxFlex fxLayoutAlign="center">
+          <a [routerLink]="['../', 'login']" mat-button color="accent">I have an account</a>
+        </div>
+        <div fxFlex fxLayoutAlign="center">
+          <button type="submit" mat-stroked-button color="primary">Register</button>
+        </div>
+      </div>
     </form>
   </div>
 </div>

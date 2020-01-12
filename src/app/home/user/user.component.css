@@ -1,0 +1,16 @@
+mat-card {
+  width: 300px;
+}
+
+mat-card-content {
+  text-align: center;
+}
+
+mat-card-content > img {
+  border-radius: 50%;
+}
+
+.container {
+  height: 100vh;
+  background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}

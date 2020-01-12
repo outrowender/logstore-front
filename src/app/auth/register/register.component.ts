@@ -1,26 +1,22 @@
-import { Component, OnInit } from "@angular/core";
-import { AuthService } from "../auth.service";
-import { FormGroup, FormControl, Validators } from "@angular/forms";
-import { RxwebValidators } from "@rxweb/reactive-form-validators";
+import {Component, OnInit} from '@angular/core'
+import {AuthService} from '../auth.service'
+import {FormGroup, FormControl, Validators} from '@angular/forms'
+import {RxwebValidators} from '@rxweb/reactive-form-validators'
 
 @Component({
-  selector: "app-register",
-  templateUrl: "./register.component.html",
-  styleUrls: ["./register.component.css"]
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
   constructor(private _auth: AuthService) {}
-  formRegister: FormGroup;
+  formRegister: FormGroup
 
   ngOnInit() {
     this.formRegister = new FormGroup({
-      name: new FormControl("", [
-        Validators.required,
-        Validators.minLength(2),
-        Validators.maxLength(50)
-      ]),
-      email: new FormControl("", [Validators.required, Validators.email]),
-      password: new FormControl("", [
+      name: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [
         RxwebValidators.required(),
         RxwebValidators.password({
           validation: {
@@ -31,18 +27,22 @@ export class RegisterComponent implements OnInit {
           }
         })
       ]),
-      repassword: new FormControl("", [
-        RxwebValidators.required(),
-        RxwebValidators.compare({ fieldName: "password" })
-      ])
-    });
+      repassword: new FormControl('', [RxwebValidators.required(), RxwebValidators.compare({fieldName: 'password'})])
+    })
   }
 
   submit() {
     if (this.formRegister.valid) {
-      this._auth.register(this.formRegister.value);
+      this._auth.register(this.formRegister.value)
     } else {
-      console.log("invalid");
+      Object.keys(this.formRegister.controls).forEach(key => {
+        this.formRegister.get(key).markAsDirty()
+      })
     }
+  }
+
+  isControlHasError(name: string, validationType: string): boolean {
+    const ctr = this.formRegister.controls[name]
+    return ctr && ctr.hasError(validationType) && (ctr.dirty || ctr.touched)
   }
 }
