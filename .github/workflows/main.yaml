@@ -20,11 +20,10 @@ jobs:
           npm install --quiet
           npm run build
 
-      - name: Zip Build
-        uses: TheDoctor0/zip-release@v0.2.1
+      - name: Zip build
+        uses: montudor/action-zip@v0.1.0
         with:
-          filename: release.zip
-          path: dist/*
+          args: zip -qq -r release.zip dist
 
       - name: AWS Beanstalk Deploy
         uses: einaregilsson/beanstalk-deploy@v4
