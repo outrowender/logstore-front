@@ -23,7 +23,7 @@ jobs:
       - name: Zip build
         uses: montudor/action-zip@v0.1.0
         with:
-          args: zip -r release.zip dist
+          args: zip -r release.zip dist/*
 
       - name: AWS Beanstalk Deploy
         uses: einaregilsson/beanstalk-deploy@v4
