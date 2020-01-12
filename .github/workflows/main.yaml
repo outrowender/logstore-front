@@ -23,22 +23,16 @@ jobs:
       - name: Zip Build
         uses: TheDoctor0/zip-release@v0.2.1
         with:
-          # Filename for archive
           filename: release.zip
-          # Base path for archive files
-          path: dist          
+          path: dist
           
       - name: Beanstalk Deploy
         uses: einaregilsson/beanstalk-deploy@v4
-        with:
-          # AWS Access Key
+        with:          
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          # AWS Secret Key
           aws_secret_key: ${{ secrets.AWS_SECRET_KEY }}
-          # AWS Region
           region: sa-east-1
-          # Beanstalk application name
           application_name: logstore         
-          # Zip file with the version to deploy. If skipped the action will deploy existing version.
+          environment_name: Logstore-env-1
           deployment_package: release.zip
 
