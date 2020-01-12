@@ -33,5 +33,5 @@ jobs:
           region: sa-east-1
           application_name: logstore-sa
           environment_name: LogstoreSa-env
-          deployment_package: release.zip
+          deployment_package: dist
           version_label: ${{ github.sha }}
