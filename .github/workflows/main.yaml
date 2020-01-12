@@ -35,3 +35,4 @@ jobs:
           application_name: logstore
           environment_name: Logstore-node-env
           deployment_package: release.zip
+          version_label: ${{ github.sha }}
