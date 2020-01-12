@@ -1,4 +1,4 @@
-name: Build and Deploy Angular
+name: Build, Test and Deploy on AWS
 on:
   push:
     branches:
@@ -19,20 +19,19 @@ jobs:
         run: |
           npm install --quiet
           npm run build
-          
+
       - name: Zip Build
         uses: TheDoctor0/zip-release@v0.2.1
         with:
           filename: release.zip
           path: dist
-          
-      - name: Beanstalk Deploy
+
+      - name: AWS Beanstalk Deploy
         uses: einaregilsson/beanstalk-deploy@v4
-        with:          
+        with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_key: ${{ secrets.AWS_SECRET_KEY }}
           region: sa-east-1
-          application_name: logstore         
-          environment_name: Logstore-env-1
+          application_name: logstore
+          environment_name: Logstore-node-env
           deployment_package: release.zip
-
