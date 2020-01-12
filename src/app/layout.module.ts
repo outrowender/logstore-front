@@ -7,10 +7,11 @@ import {MatIconModule} from '@angular/material/icon'
 import {MatInputModule} from '@angular/material'
 import {MatButtonModule} from '@angular/material/button'
 import {MatSnackBarModule} from '@angular/material/snack-bar'
+import {MatDialogModule} from '@angular/material/dialog'
 
 @NgModule({
   declarations: [],
-  imports: [CommonModule, FlexLayoutModule, MatCardModule, MatFormFieldModule, MatIconModule, MatInputModule, MatButtonModule, MatSnackBarModule],
-  exports: [FlexLayoutModule, MatCardModule, MatFormFieldModule, MatIconModule, MatInputModule, MatButtonModule, MatSnackBarModule]
+  imports: [CommonModule, FlexLayoutModule, MatCardModule, MatFormFieldModule, MatIconModule, MatInputModule, MatButtonModule, MatSnackBarModule, MatDialogModule],
+  exports: [FlexLayoutModule, MatCardModule, MatFormFieldModule, MatIconModule, MatInputModule, MatButtonModule, MatSnackBarModule, MatDialogModule]
 })
 export class LayoutModule {}

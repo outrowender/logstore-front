@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>{{ data?.title }}</h1>
+<div mat-dialog-content>
+  <p *ngIf="data?.message">{{ data.message }}</p>
+  <p *ngFor="let item of data.messages | keyvalue">{{ item.value }}</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="buttonPressed('close')">CLOSE</button>
+  <button mat-button (click)="buttonPressed(data.button)" cdkFocusInitial>{{ data?.button }}</button>
+</div>
