@@ -24,8 +24,8 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          BRANCH: gh-pages # The branch the action should deploy to.
-          FOLDER: dist # The folder the action should deploy.
+          BRANCH: gh-pages
+          FOLDER: dist
 
     # - name: Discord
     #   uses: Ilshidur/action-discord@0.0.2
