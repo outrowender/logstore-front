@@ -30,4 +30,4 @@ jobs:
           application_name: logstore-sa
           environment_name: LogstoreSa-env
           version_label: ${{ github.sha }}          
-          deployment_package: release.zip
+          deployment_package: dist/release.zip
