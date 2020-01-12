@@ -59,6 +59,10 @@ export class AuthService {
     return !isExpired;
   }
 
+  user() {
+    return this._http.get<any>(`${environment.api}/user`).toPromise();
+  }
+
   register(data: any) {
     this._http
       .post<any>(`${environment.api}/user`, data)

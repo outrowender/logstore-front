@@ -1,1 +1,21 @@
 <p>notes works!</p>
+
+<div id="container" fxLayout="row wrap">
+  <div fxLayout="row wrap" fxLayoutGap="16px">
+    <mat-card fxFlex="32" class="example-card" *ngFor="let note of notes">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{ note.title }}</mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content>
+        <p>
+          {{ note.detail }}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>DELETE</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
