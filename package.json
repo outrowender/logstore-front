@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve -o",
-    "build": "./node_modules/@angular/cli/bin/ng build --prod --base-href=\"http://logstoresa-env.h5earcz3yt.sa-east-1.elasticbeanstalk.com/\"",
+    "build": "./node_modules/@angular/cli/bin/ng build --prod --base-href=\"http://logstoresa-env.h5earcz3yt.sa-east-1.elasticbeanstalk.com\"",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
