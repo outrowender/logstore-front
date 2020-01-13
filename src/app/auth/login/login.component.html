@@ -11,7 +11,7 @@
     <form autocomplete="off" [formGroup]="formLogin" (ngSubmit)="submit()" fxLayout="column">
       <mat-form-field appearance="outline">
         <mat-label>Email</mat-label>
-        <input [formControlName]="'email'" matInput #emailField="matInput" cdkFocusInitial />
+        <input id="email" [formControlName]="'email'" matInput #emailField="matInput" cdkFocusInitial />
 
         <mat-hint *ngIf="isControlHasError('email', 'required')">This field is required</mat-hint>
         <mat-hint *ngIf="isControlHasError('email', 'email')">This field shoud be a valid email address</mat-hint>
@@ -19,7 +19,7 @@
 
       <mat-form-field appearance="outline">
         <mat-label>Password</mat-label>
-        <input [formControlName]="'password'" type="password" matInput />
+        <input id="password" [formControlName]="'password'" type="password" matInput />
 
         <mat-hint *ngIf="isControlHasError('password', 'required')">This field is required</mat-hint>
       </mat-form-field>

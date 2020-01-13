@@ -18,8 +18,8 @@ jobs:
       - name: Execute build and tests
         run: |
           npm install --quiet
-          npm run build
           npm test
+          npm run build
           cd dist && zip -r ./release.zip .
 
       - name: AWS Beanstalk Deploy
