@@ -1,12 +1,18 @@
-import { TestBed } from "@angular/core/testing";
+import {TestBed} from '@angular/core/testing'
 
-import { NoteService } from "./note.service";
+import {NoteService} from './note.service'
+import {LayoutModule} from 'src/app/layout.module'
+import {SharedModule} from 'src/app/shared/shared.module'
 
-describe("HomeService", () => {
-  beforeEach(() => TestBed.configureTestingModule({}));
+describe('NoteService', () => {
+  beforeEach(() =>
+    TestBed.configureTestingModule({
+      imports: [LayoutModule, SharedModule]
+    })
+  )
 
-  it("should be created", () => {
-    const service: NoteService = TestBed.get(NoteService);
-    expect(service).toBeTruthy();
-  });
-});
+  it('should be created', () => {
+    const service: NoteService = TestBed.get(NoteService)
+    expect(service).toBeTruthy()
+  })
+})
